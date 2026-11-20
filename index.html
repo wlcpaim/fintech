@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ApexBank - Banco Digital Moderno com Pix, Transferências, Cartão Virtual e Simulador de Investimentos">
+  <meta name="theme-color" content="#080B11">
+  <title>ApexBank | Banco Digital Moderno</title>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Estilos da Aplicação -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Barra Lateral (Desktop) -->
+    <aside class="sidebar" aria-label="Navegação Principal">
+      <div class="sidebar-header">
+        <div class="brand">
+          <div class="brand-logo" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-name">Apex<span class="brand-highlight">Bank</span></span>
+            <span class="brand-tag">Fintech Pro</span>
+          </div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#home" class="nav-link active" data-view="home">
+          <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span>Início</span>
+        </a>
+        <a href="#pix" class="nav-link" data-view="pix">
+          <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <span>Área Pix</span>
+        </a>
+        <a href="#transfer" class="nav-link" data-view="transfer">
+          <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          <span>Transferir</span>
+        </a>
+        <a href="#statement" class="nav-link" data-view="statement">
+          <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <span>Extrato</span>
+        </a>
+        <a href="#card" class="nav-link" data-view="card">
+          <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          <span>Cartão Virtual</span>
+        </a>
+        <a href="#invest" class="nav-link" data-view="invest">
+          <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          <span>Investimentos</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="user-profile-badge">
+          <div class="user-avatar" id="sidebar-user-avatar">AP</div>
+          <div class="user-details">
+            <span class="user-name" id="sidebar-user-name">Carregando...</span>
+            <span class="user-account" id="sidebar-user-account">Ag: 0001 • C/C: ...</span>
+          </div>
+        </div>
+        <button id="btn-reset-data" class="btn-reset" title="Restaurar dados iniciais de demonstração">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+          Restaurar Demonstração
+        </button>
+      </div>
+    </aside>
+
+    <!-- Conteúdo Principal -->
+    <main class="main-content" id="main-content">
+      <header class="topbar">
+        <div class="topbar-title">
+          <h1 id="topbar-heading">Início</h1>
+          <p id="topbar-subheading" class="text-secondary">Visão geral da sua conta ApexBank</p>
+        </div>
+        <div class="topbar-actions">
+          <button id="btn-toggle-eye" class="btn-icon" aria-label="Ocultar ou mostrar saldos" title="Ocultar/Mostrar Saldo">
+            <svg id="eye-open-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            <svg id="eye-closed-icon" class="hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24M1 1l22 22"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- View Containers -->
+      <div class="views-wrapper">
+        <!-- 1. VIEW: INÍCIO -->
+        <section id="view-home" class="view-panel active"></section>
+
+        <!-- 2. VIEW: PIX -->
+        <section id="view-pix" class="view-panel"></section>
+
+        <!-- 3. VIEW: TRANSFERIR -->
+        <section id="view-transfer" class="view-panel"></section>
+
+        <!-- 4. VIEW: EXTRATO -->
+        <section id="view-statement" class="view-panel"></section>
+
+        <!-- 5. VIEW: CARTÃO VIRTUAL -->
+        <section id="view-card" class="view-panel"></section>
+
+        <!-- 6. VIEW: INVESTIMENTOS & SIMULADOR -->
+        <section id="view-invest" class="view-panel"></section>
+      </div>
+    </main>
+
+    <!-- Navegação Mobile Inferior -->
+    <nav class="bottom-nav" aria-label="Navegação Mobile">
+      <a href="#home" class="bottom-nav-item active" data-view="home">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+        <span>Início</span>
+      </a>
+      <a href="#pix" class="bottom-nav-item" data-view="pix">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        <span>Pix</span>
+      </a>
+      <a href="#transfer" class="bottom-nav-item" data-view="transfer">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        <span>Transferir</span>
+      </a>
+      <a href="#statement" class="bottom-nav-item" data-view="statement">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <span>Extrato</span>
+      </a>
+      <a href="#card" class="bottom-nav-item" data-view="card">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        <span>Cartão</span>
+      </a>
+      <a href="#invest" class="bottom-nav-item" data-view="invest">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        <span>Investir</span>
+      </a>
+    </nav>
+  </div>
+
+  <!-- Modal Universal de Comprovante Bancário -->
+  <div id="receipt-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="receipt-title">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-header-icon success">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3 id="receipt-title">Comprovante de Transação</h3>
+        <p class="text-secondary text-sm">Transação processada com sucesso pelo ApexBank</p>
+      </div>
+
+      <div class="receipt-body" id="receipt-details">
+        <!-- Renderizado dinamicamente -->
+      </div>
+
+      <div class="modal-actions">
+        <button id="btn-copy-receipt" class="btn btn-secondary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copiar Detalhes
+        </button>
+        <button id="btn-close-receipt" class="btn btn-primary">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Container de Toasts de Notificação -->
+  <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Scripts Modulares -->
+  <script src="js/state.js"></script>
+  <script src="js/views.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
